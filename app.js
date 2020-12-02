@@ -77,33 +77,33 @@ app.post('/api/addMovie', (req, res) => {
 
 
 
-// // UPDATE Request Handler - to update a movie title
-// app.put('/api/genres/:category', (req, res) => {
-//     const genre = genres.find(genre => genre.category===(req.params.category));
-//     if(!genre){
-//         res.status(404).send("Genre not found");
-//         return;
-//     }
-//     if(!req.body.title){
-//         res.status(400).json("Invalid body parameters.");
-//         return;
-//     }
-//     genre.title = req.body.title;
-//     res.json({genre});
-// })
+// UPDATE Request Handler - to update a movie title
+app.put('/api/genres/:category', (req, res) => {
+    const genre = genres.find(genre => genre.category===(req.params.category));
+    if(!genre){
+        res.status(404).send("Genre not found");
+        return;
+    }
+    if(!req.body.title){
+        res.status(400).json("Invalid body parameters.");
+        return;
+    }
+    genre.title = req.body.title;
+    res.json({genre});
+})
 
-// // DELETE Request Handler
-// app.delete('/api/genres/:category', (req, res) => {
-//     const genre = genres.find(genre => genre.category===(req.params.category));
-//     if(!genre){
-//         res.status(404).send("Genre not found");
-//         return;
-//     }
-//     let index = genres.indexOf(genre);
-//     genres.splice(index, 1);
-//     res.json({genre});
+// DELETE Request Handler
+app.delete('/api/genres/:category', (req, res) => {
+    const genre = genres.find(genre => genre.category===(req.params.category));
+    if(!genre){
+        res.status(404).send("Genre not found");
+        return;
+    }
+    let index = genres.indexOf(genre);
+    genres.splice(index, 1);
+    res.json({genre});
 
-// })
+})
 
 
 app.listen(port, () => {
